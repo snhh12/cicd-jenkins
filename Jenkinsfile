@@ -18,7 +18,6 @@ pipeline {
         SONARSERVER = 'sonarserver'
         SONARSCANNER = 'sonarscanner'
     }
-
     stages {
         stage('Build'){
             steps {
@@ -73,7 +72,7 @@ pipeline {
             }
         }
 
-         stage("UploadArtifact"){
+        stage("UploadArtifact"){
             steps{
                 nexusArtifactUploader(
                   nexusVersion: 'nexus3',
@@ -90,5 +89,7 @@ pipeline {
                      type: 'war']
                   ]
                 )
+            }
+        }
     }
 }
